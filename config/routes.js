@@ -9,6 +9,10 @@ module.exports = {
         {
             path: '/location/:locationSlug',
             component: 'pages/location'
+        },
+        {
+            path: '/post/:postId',
+            component: 'pages/post'
         }
     ]
 };

@@ -1,18 +1,23 @@
 <style scoped lang="scss">
-    $c: #e2e2e2;
-
     .users {
         width: 90%;
         margin: auto;
     }
 
-    .user {
+    .post {
         width: 30%;
         float: left;
         border: 1px solid #ccc;
         margin: 5px;
         padding: 10px;
-        background: $c;
+        text-align: left;
+        color: #000;
+        min-height: 150px;
+        background: #e2e2e2;
+
+        &:hover {
+            background: rgba(33,33,33,0.3);
+        }
 
         h3 {
             margin: 0;
@@ -38,11 +43,14 @@
 
         <router-link to="/about">About Us</router-link>
 
-        <div class="users">
-            <div v-for="user in users" class="user">
-                <h3 class="name">{{ user.name }}</h3>
-                <h4 class="username">{{ user.username }}</h4>
-                <p class="email">{{ user.email }}</p>
+        <div class="posts">
+            <div v-for="post in posts">
+                <router-link :to="'/post/' + post.id" class="post">
+                    <h3 class="name">{{ post.title }}</h3>
+                    <hr/>
+                    <h4 class="username">postId: {{ post.id }}</h4>
+                    <p class="email">userId: {{ post.userId }}</p>
+                </router-link>
             </div>
         </div>
     </div>
@@ -59,15 +67,22 @@
         data ({ req }) {
             return axios.get(
                 'https://jsonplaceholder.typicode.com/users'
-            ).then(function (res) {
-                return {
-                    users: res.data,
-                    req: req ? 'server' : 'client',
-                    name: 'C'
-                };
+            ).then(function (users) {
+                return axios.get(
+                    'https://jsonplaceholder.typicode.com/posts'
+                ).then(function (posts) {
+                   return {
+                        users: users.data,
+                        posts: posts.data,
+                        req: req ? 'server' : 'client',
+                        name: 'C'
+                    };
+                }).catch(function (err) {
+                    return { err }
+                });
             }).catch(function (err) {
                 console.err(err)
-                return {};
+                return { err };
             })
         },
         computed: {
@@ -78,6 +93,16 @@
         methods: {
             onClick() {
                 this.pouet *= this.incrementBy;
+            },
+            guessAuthor (id) {
+                this.users.forEach(function (user) {
+                    console.log('id', id, user.id);
+                    if (user.id === id) {
+                        return user
+                    }
+                });
+
+                return {};
             }
         }
     }
