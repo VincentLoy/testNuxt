@@ -12,5 +12,5 @@ export default {
 </script>
 
 
-<style src="assets/main.css" lang="css"></style>
+<style src="assets/main.scss" lang="scss"></style>
 
