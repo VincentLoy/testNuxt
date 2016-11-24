@@ -1,3 +1,5 @@
+const routes = require('./config/routes');
+
 module.exports = {
     css: [{
         src: 'assets/main.scss',
@@ -5,5 +7,6 @@ module.exports = {
     }],
     build: {
         vendor: ['axios']
-    }
+    },
+    router: routes
 };
