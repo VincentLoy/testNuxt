@@ -10,6 +10,8 @@ const _2c7afb1d = process.BROWSER ? () => System.import('/home/vincent/dev/testN
 
 const _4c32d5e2 = process.BROWSER ? () => System.import('/home/vincent/dev/testNuxt/pages/index.vue') : require('/home/vincent/dev/testNuxt/pages/index.vue')
 
+const _3b856955 = process.BROWSER ? () => System.import('/home/vincent/dev/testNuxt/pages/location.vue') : require('/home/vincent/dev/testNuxt/pages/location.vue')
+
 
 const scrollBehavior = (to, from, savedPosition) => {
   if (savedPosition) {
@@ -41,6 +43,16 @@ export default new Router({
     {
       path: '/',
       component: _4c32d5e2
+    },
+    
+    {
+      path: '/location',
+      component: _3b856955
+    },
+    
+    {
+      path: '/location/:locationSlug',
+      component: _3b856955
     }
     
   ]
