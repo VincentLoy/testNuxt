@@ -6,7 +6,8 @@
   "dependencies": {
     "axios": "^0.15.2",
     "glob": "^7.1.1",
-    "nuxt": "^0.6.9"
+    "nuxt": "^0.6.9",
+    "slugify": "^1.0.2"
   },
   "devDependencies": {
     "node-sass": "^3.13.0",

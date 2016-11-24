@@ -34,9 +34,7 @@
     <div class="test">
         <h1>GM{{ name }}</h1>
 
-        <div class="search-container">
-            <search></search>
-        </div>
+        <search></search>
 
         <router-link to="/about">About Us</router-link>
 
