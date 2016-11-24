@@ -6,9 +6,9 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 
-const _4c32d5e2 = process.BROWSER ? () => System.import('/home/vincent/dev/testNuxt/pages/index.vue') : require('/home/vincent/dev/testNuxt/pages/index.vue')
+const _2c7afb1d = process.BROWSER ? () => System.import('/home/vincent/dev/testNuxt/pages/about.vue') : require('/home/vincent/dev/testNuxt/pages/about.vue')
 
-const _dcc69fd0 = process.BROWSER ? () => System.import('/home/vincent/dev/testNuxt/pages/users.vue') : require('/home/vincent/dev/testNuxt/pages/users.vue')
+const _4c32d5e2 = process.BROWSER ? () => System.import('/home/vincent/dev/testNuxt/pages/index.vue') : require('/home/vincent/dev/testNuxt/pages/index.vue')
 
 
 const scrollBehavior = (to, from, savedPosition) => {
@@ -34,13 +34,13 @@ export default new Router({
   routes: [
     
     {
-      path: '/',
-      component: _4c32d5e2
+      path: '/about',
+      component: _2c7afb1d
     },
     
     {
-      path: '/users',
-      component: _dcc69fd0
+      path: '/',
+      component: _4c32d5e2
     }
     
   ]
